@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :makes
   resources :cars
   resources :parts
   get 'say/hello'
