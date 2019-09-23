@@ -11,6 +11,31 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :product_description, rows: 10, cols: 60 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :make %>
+    <%= form.text_field :make%>
+  </div>
+
+  <div class="field">
+    <%= form.label :model %>
+    <%= form.text_field :model%>
+  </div>
+
+  <div class="field">
+    <%= form.label :vinNumber %>
+    <%= form.text_field :vinNumber%>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country%>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
