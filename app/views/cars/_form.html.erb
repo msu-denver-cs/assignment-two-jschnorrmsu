@@ -1,7 +1,7 @@
-git di<%= form_with(model: car, local: true) do |form| %>
+<%= form_with(model: car, local: true) do |form| %>
   <% if car.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(car.errors.count, "error") %> prohibited this car from being saved:</h2>
+      <h2><%= pluralize(cars.errors.count, "error") %> prohibited this car from being saved:</h2>
 
       <ul>
       <% car.errors.full_messages.each do |message| %>
@@ -33,7 +33,7 @@ git di<%= form_with(model: car, local: true) do |form| %>
 
   <div class="field">
     <%= form.label :part_id %>
-    <%= form.collection_check_boxes :part_ids, @parts, :id, :car_type %>
+    <%= form.collection_check_boxes :part_ids, Part.all, :id, :part %>
   </div>
 
   <div class="actions">
