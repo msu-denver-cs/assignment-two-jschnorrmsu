@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cars_parts
   resources :makes
   resources :cars
   resources :parts
