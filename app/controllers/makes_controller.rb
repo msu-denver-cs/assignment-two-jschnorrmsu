@@ -62,13 +62,13 @@ class MakesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_make
-      @make = Make.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_make
+    @make = Make.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def make_params
-      params.fetch(:make, {})
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def make_params
+    params.require(:make).permit(:name, :country)
+  end
 end

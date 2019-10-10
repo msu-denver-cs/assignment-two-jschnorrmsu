@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :make %>
-    <%= form.text_field :make%>
+    <%= form.collection_select :make_id, Make.all, :id, :name%>
   </div>
 
   <div class="field">
@@ -22,7 +22,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :vinNumber %>
+    <%= form.label :"Vin Number"%>
     <%= form.text_field :vinNumber%>
   </div>
 
@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= form.label :part_id %>
-    <%= form.collection_check_boxes :part_ids, Part.all, :id, :part %>
+    <%= form.collection_select :part_ids, Part.all, :id, :part%>
   </div>
 
   <div class="actions">
