@@ -18,6 +18,7 @@
       </tr>
     <% end %>
   </tbody>
+
   <%= form_tag(search_parts_url, method: "get") do %>
     <%= label_tag(:query, "Search for Part:") %>
     <%= text_field_tag(:query) %>
