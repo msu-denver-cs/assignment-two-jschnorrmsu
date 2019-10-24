@@ -20,9 +20,11 @@
       </tr>
     <% end %>
   </tbody>
-
-
-
+  <%= form_tag(search_makes_url, method: "get") do %>
+    <%= label_tag(:query, "Search for Make:") %>
+    <%= text_field_tag(:query) %>
+    <%= submit_tag("Makes Search") %>
+  <% end %>
 </table>
 
 <br>
