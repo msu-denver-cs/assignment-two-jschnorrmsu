@@ -15,12 +15,18 @@ class PartsController < ApplicationController
   # GET /parts/new
   def new
     @part = Part.new
-    @part = Car.all
+    @cars = Car.all
   end
 
   # GET /parts/1/edit
   def edit
     @cars = Car.all
+  end
+
+  # Allow searching.
+  def search
+    @parts = Part.where("part like ?", "%#{params[:query]}%")
+    render :index
   end
 
   # POST /parts
@@ -69,15 +75,8 @@ class PartsController < ApplicationController
       @part = Part.find(params[:id])
     end
 
-  # Allow searching.
-  def search
-    @parts = Part.where("part like ?", "%#{params[:query]}%")
-    render :index
-  end
-
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def part_params
-      params.require(:part).permit(:part, :car_ids => [])
+      params.require(:part).permit(:part)
     end
 end
