@@ -69,6 +69,13 @@ class PartsController < ApplicationController
       @part = Part.find(params[:id])
     end
 
+  # Allow searching.
+  def search
+    @parts = Part.where("part like ?", "%#{params[:query]}%")
+    render :index
+  end
+
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def part_params
       params.require(:part).permit(:part, :car_ids => [])

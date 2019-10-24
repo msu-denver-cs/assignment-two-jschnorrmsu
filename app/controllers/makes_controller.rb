@@ -71,4 +71,11 @@ class MakesController < ApplicationController
   def make_params
     params.require(:make).permit(:name, :country)
   end
+
+  # Allows searching
+  def search
+    @makes = Make.where("name like ? OR country like ?", "%#{params[:query]}%", "%#{params[:query]}%")
+    render :index
+  end
+
 end
