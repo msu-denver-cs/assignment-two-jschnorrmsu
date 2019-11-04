@@ -71,6 +71,11 @@ class CarsController < ApplicationController
       @car = Car.find(params[:id])
     end
 
+    # Search function.
+    def search
+      @cars = Car.where("VIN like?", "%{params[:query]}%")
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def car_params
       params.require(:car).permit(:make_id, :model, :VIN, :country, :part_ids => [])
