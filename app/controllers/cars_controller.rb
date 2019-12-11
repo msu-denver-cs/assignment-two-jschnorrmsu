@@ -72,9 +72,11 @@ class CarsController < ApplicationController
     end
 
     # Search function.
-    def search
-      @cars = Car.where("VIN like?", "%{params[:query]}%")
-    end
+  def search
+    @cars = Car.where("model like ? OR country like ? OR VIN like ?",
+                      "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+    render :index
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def car_params
