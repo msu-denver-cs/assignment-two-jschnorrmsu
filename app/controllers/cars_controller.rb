@@ -74,7 +74,8 @@ class CarsController < ApplicationController
     # Search function.
   def search
     @cars = Car.where("model like ? OR country like ? OR VIN like ?",
-                      "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+      "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+      "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%")
     render :index
   end
 
